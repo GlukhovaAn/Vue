@@ -2,67 +2,61 @@
   <div>
     <div class="h1">Testimonial</div>
     <div class="cont">
-      <div class="card">
-        <p>
-          This is a template Figma file,<br />
-          turned into code using Anima.<br />
-          Learn more at AnimaApp.com
-        </p>
-        <img src="/images/testimonial.png" class="img" />
-      </div>
-      <div class="card">
-        <p>
-          This is a template Figma file,<br />
-          turned into code using Anima.<br />
-          Learn more at AnimaApp.com
-        </p>
-        <img src="/images/testimonial.png" class="img" />
-      </div>
-      <div class="card">
-        <p>
-          This is a template Figma file,<br />
-          turned into code using Anima.<br />
-          Learn more at AnimaApp.com
-        </p>
-        <img src="/images/testimonial.png" class="img" />
-      </div>
-      <div class="card">
-        <p>
-          This is a template Figma file,<br />
-          turned into code using Anima.<br />
-          Learn more at AnimaApp.com
-        </p>
-        <img src="/images/testimonial.png" class="img" />
-      </div>
-      <div class="card">
-        <p>
-          This is a template Figma file,<br />
-          turned into code using Anima.<br />
-          more at AnimaApp.com
-        </p>
-        <img src="/images/testimonial.png" class="img" />
-      </div>
-      <div class="card">
-        <p>
-          This is a template Figma file,<br />
-          turned into code using Anima.<br />
-          Learn more at AnimaApp.com
-        </p>
-        <img src="/images/testimonial.png" class="img" />
-      </div>
+        <TestimonalCard
+        v-for="(el, index) in data"
+        :key="index"
+        :path="el.path"
+        :text="el.text"
+      />
     </div>
   </div>
 </template>
 <script>
+import TestimonalCard from "./TestimonalCard.vue";
 export default {
   name: "TestimonialComponent",
+  components: {
+    TestimonalCard,
+  },
+  data() {
+    return {
+        data: [
+        {
+          text:
+            " This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com",
+          path: "/images/testimonial.png",
+        },
+        {
+          text:
+            " This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com",
+          path: "/images/testimonial.png",
+        },
+        {
+          text:
+            " This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com",
+          path: "/images/testimonial.png",
+        },
+        {
+          text:
+            " This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com",
+          path: "/images/testimonial.png",
+        },
+        {
+          text:
+            " This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com",
+          path: "/images/testimonial.png",
+        },
+        {
+          text:
+            " This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com",
+          path: "/images/testimonial.png",
+        },
+      ],
+    }
+  }
 };
 </script>
 <style scoped>
-.img {
-  width: 310px;
-  height: 88px;
-}
 .h1 {
   font-size: 2.5rem;
   text-align: center;
@@ -76,12 +70,5 @@ export default {
   margin: auto;
   gap: 40px;
   margin-bottom: 140px;
-}
-.card {
-  padding: 30px;
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  background-color: #f8f9fa;
 }
 </style>

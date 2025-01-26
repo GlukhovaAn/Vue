@@ -2,12 +2,12 @@
   <div class="gallerybar">
     <div class="h1">Latest Work</div>
     <div class="gallery">
-      <GalleryCardComponent class="m-1" path="/images/gallery/gallery_1.png" />
-      <GalleryCardComponent class="m-1" path="/images/gallery/gallery_2.png" />
-      <GalleryCardComponent class="m-1" path="/images/gallery/gallery_3.png" />
-      <GalleryCardComponent class="m-1" path="/images/gallery/gallery_4.png" />
-      <GalleryCardComponent class="m-1" path="/images/gallery/gallery_5.png" />
-      <GalleryCardComponent class="m-1" path="/images/gallery/gallery_6.png" />
+      <GalleryCardComponent
+        v-for="(path, index) in gallery"
+        :key="index"
+        :path="path"
+        class="m-1"
+      />
     </div>
   </div>
 </template>
@@ -19,11 +19,23 @@ export default {
   components: {
     GalleryCardComponent,
   },
+  data() {
+    return {
+      gallery: [
+        "/images/gallery/gallery_1.png",
+        "/images/gallery/gallery_2.png",
+        "/images/gallery/gallery_3.png",
+        "/images/gallery/gallery_4.png",
+        "/images/gallery/gallery_5.png",
+        "/images/gallery/gallery_6.png"
+      ],
+    };
+  },
 };
 </script>
 <style scoped>
 .gallerybar {
-    margin-bottom: 140px;
+  margin-bottom: 140px;
 }
 .gallery {
   display: flex;
